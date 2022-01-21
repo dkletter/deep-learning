@@ -7,8 +7,9 @@ The purpose of this analysis is examine the effectiveness of using deep learning
 ### Modeling and Results
 
 * Data Preprocessing
-  * I determined `IS_SUCCESSFUL` is the best choice for my targets and features because it's a binary specifying if an applicant was successful.
   * The `EIN` and `NAME` columns are neither targets nor features so I dropped them from the input data.
+  * I determined `IS_SUCCESSFUL` is the best choice for my target because it's a binary specifying if an applicant was successful.
+  * The remaining columns were my features.
 
 * Compiling, Training, and Evaluating the Model
   * My initial attempt used 3 layers: input, output, and 1 hidden layer. Instead of hard coding the neurons, I defined an input dimension using `X_train.shape[1]` which returned 43. I also defined a base neuron and multiplied it by 2. Therefore, my first two layers had 86 and 43 (divided this by 2) neurons using ReLu as the activation function. For the output layer I went with a simple default of 1 neuron using a sigmoid activation function. After training for 25 epochs, the accuracy score was 72.74%. All these choices were arbitrary because I just wanted to observe how my model would perform.

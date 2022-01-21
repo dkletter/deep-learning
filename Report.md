@@ -9,7 +9,7 @@ The purpose of this analysis is examine the effectiveness of using deep learning
 * Data Preprocessing
   * The `EIN` and `NAME` columns are neither targets nor features so I dropped them from the input data.
   * I determined `IS_SUCCESSFUL` is the best choice for my target because it's a binary specifying if an applicant was successful.
-  * The remaining columns were my features.
+  * The following columns were my features: `APPLICATION_TYPE`, `AFFILIATION`, `CLASSIFICATION`, `USE_CASE`, `ORGANIZATION`, `STATUS`, `INCOME_AMT`, `SPECIAL_CONSIDERATIONS`, and `ASK_AMT`.
 
 * Compiling, Training, and Evaluating the Model
   * My initial attempt used 3 layers: input, output, and 1 hidden layer. Instead of hard coding the neurons, I defined an input dimension using `X_train.shape[1]` which returned 43. I also defined a base neuron and multiplied it by 2. Therefore, my first two layers had 86 and 43 (divided this by 2) neurons using ReLu as the activation function. For the output layer I went with a simple default of 1 neuron using a sigmoid activation function. After training for 25 epochs, the accuracy score was 72.74%. All these choices were arbitrary because I just wanted to observe how my model would perform.
@@ -22,4 +22,4 @@ The purpose of this analysis is examine the effectiveness of using deep learning
  
  ### Summary
 
-Ultimately I was unsuccessful, but I was satisifed with my efforts. My gut feeling is the number of epochs had more impact than the neurons. If I had more time and resources (my older laptop wasn't always a happy camper when training the models with larger numbers of neurons and epochs), I would take a more systematic approach to tweaking the hyperparameters, keeping in mind the perils of increased complexity can lead to overfitting.
+Ultimately I was unsuccessful, but I was satisifed with my efforts. My gut feeling is the number of epochs had more impact than the number of neurons? If I had more time and resources (my older laptop wasn't always a happy camper when training the models with very large numbers of neurons and epochs), I would take a more systematic approach to tweaking the hyperparameters, keeping in mind the perils of increased complexity can lead to overfitting. Based on what we learned in class, because the data set involves several categorical features, using a Random Forest classifier may potentially produce better results but I honestly don't know.
